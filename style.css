@@ -1,0 +1,882 @@
+/* ****************************** Estilos generales ***************************** */
+
+/* Definición de variables CSS */
+:root {
+      --primary-color: #4f4aa6;
+      --secondary-color: #48ca95;
+      --bg-color: #e0e0e099;
+      --text-color: #333333;
+      --light-color: #ffffff;
+      --text-font: 'Poppins', sans-serif;
+      --menu-font: 'Poppins-Bold', sans-serif;
+      --header-title-font: 'Poppins-extraBold', sans-serif;
+
+}
+
+/* ******************************* Estilos para el header ***************************** */
+
+/* Resetear márgenes y paddings predeterminados */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--text-font);
+}
+
+/* Definición de fuentes */
+@font-face {
+      font-family: Poppins;
+      src: url(./asset/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+      font-family: Poppins-Bold;
+      src: url(./asset/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+      font-family: Poppins-extraBold;
+      src: url(./asset/fonts/Poppins-ExtraBold.ttf);
+}
+
+/* Estilos para el header */
+header {
+      background-image: url(./asset/images/banner.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 75vh;
+}
+
+/* Estilos para la navegación */
+header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      max-width: 1900px;
+      margin: 0 auto;
+      width: 100%;
+}
+
+
+/* Estilos para la lista de navegación */
+header nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+}
+
+/* Estilos para los enlaces de navegación */
+header nav ul li a {
+      text-decoration: none;
+      color: var(--light-color);
+      font-family: var(--menu-font);
+      font-size: clamp(14px, 1.2vw, 20px);
+      transition: color 0.3s;
+}
+header nav ul li a:hover {
+      color: var(--secondary-color);
+}
+
+/* Estilos para el enlace seleccionado */
+.selected {
+      color: var(--secondary-color);
+}
+
+/* Estilos para el contenido del header */
+header .header-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 40px;
+}
+
+/* Estilos para el texto del header */
+header .header-content .header-text {
+      max-width: 50%;
+      flex: 1 1 50%;
+      color: var(--light-color);
+      text-align: center;
+
+}
+
+/* Estilos para el subtítulo del header */
+header .header-content .header-text h1 {
+      font-family: var(--header-title-font);
+      font-size: clamp(32px, 5vw, 70px);
+      margin-bottom: 20px;
+}
+
+/* Estilos para el título del header */
+header .header-content .header-text h2 {
+      font-family: var(--menu-font);
+      font-size: clamp(20px, 3.2vw, 45px);
+      margin-bottom: 10px;
+}
+
+/* Estilos para el párrafo del header */
+header .header-content .header-text p {
+      font-size: 20px;
+      margin-bottom: 30px;
+}
+
+/* Estilos para los botones del header */
+header .header-content .header-text button {
+      background-color: var(--secondary-color);
+      color: var(--light-color);
+      border: none;
+      padding: 18px 24px;
+      margin: 15px 10px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+      width: auto;
+      max-width: 320px;
+}
+header .header-content .header-text button:hover {
+      background-color: var(--primary-color);
+}
+/* Estilos para la imagen del header (específica `.pct`) */
+header .header-content img.pct {
+      flex: 0 0 40%;
+      max-width: 40%;
+      width: 100%;
+      height: auto;
+      max-height: 60vh;
+      object-fit: contain;
+}
+
+.menu-header {
+      display: none;
+
+}
+
+/* ********************************  Estilos resposivo del header ************************ */
+@media (max-width: 800px) {
+      header {
+            height: auto;
+            min-height: 55vh;
+            overflow: hidden;
+      }
+
+      header nav {
+            position: relative;
+      }
+
+      .menu-header {
+            display: flex;
+            width: 32px;
+            height: auto;
+            cursor: pointer;
+            z-index: 40;
+      }
+
+      /* Oculta las links por defecto en móvil, se muestran cuando tienen la clase .active */
+      .nav-links {
+            display: none;
+      }
+
+      /* Estilos para el menú desplegable en móvil */
+      .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 66px;
+            right: 20px;
+            background: rgba(0,0,0,0.6);
+            padding: 16px;
+            border-radius: 8px;
+            min-width: 200px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      }
+
+      .nav-links li a {
+            font-size: 18px;
+            display: block;
+            padding: 8px 4px;
+      }
+
+      /* Ajustes del header-content en pantallas menores */
+      header .header-content {
+            flex-direction: column;
+            padding: 30px 20px;
+            gap: 20px;
+            align-items: center;
+      }
+
+      header .header-content .header-text {
+            max-width: 50%;
+            flex: 1 1 50%;
+            color: var(--light-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+
+      }
+
+      header .header-content .header-text h1 {
+            font-size: 40px;
+      }
+
+      header .header-content .header-text h2 {
+            font-size: 28px;
+      }
+
+      header .header-content .header-text p {
+            font-size: 16px;
+      }
+
+      header .header-content .header-text button {
+            width: auto;
+            padding: 12px 18px;
+            font-size: 18px;
+      }
+
+      header .header-content img.pct {
+            max-width: 70%;
+            width: auto;
+            max-height: 45vh;
+      }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+      header nav {
+            padding: 14px;
+      }
+
+      .menu-header {
+            width: 36px;
+      }
+
+      .nav-links.active {
+            right: 10px;
+            top: 62px;
+            min-width: 160px;
+            padding: 12px;
+      }
+
+      header .header-content .header-text h1 {
+            font-size: 32px;
+      }
+
+      header .header-content .header-text h2 {
+            font-size: 20px;
+      }
+}
+
+/* Ajustes para pantallas mayores a 800px: mantener layout estable */
+@media (min-width: 801px) {
+      header {
+            height: 75vh;
+            overflow: hidden;
+      }
+
+      header .header-content {
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 60px;
+      }
+
+      header .header-content .header-text {
+            text-align: left;
+            flex: 1 1 55%;
+            max-width: 55%;
+            padding-left: 20px;
+            align-items: flex-start;
+      }
+
+      header .header-content img.pct {
+            flex: 0 0 35%;
+            max-width: 35%;
+            max-height: 60vh;
+            width: auto;
+      }
+}
+
+
+
+/* ******************************** Fin de estilos del header ***************************** */
+
+/* ****************************** Estilos para las tarjetas de productos ***************************** */
+
+.products {
+      width: 100%;
+      background-color: var(--light-color);
+      padding: 60px 20px;
+}
+
+.products .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+
+}
+.products .main-content h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      margin-bottom: 20px;
+      color: var(--primary-color);
+}
+.products .main-content p {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin-bottom: 40px;
+}
+
+.product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+}
+
+.product-card {
+      background-color: var(--light-color);
+      border-radius: 10px;
+      border: solid 2px var(--secondary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 300px;
+      margin: 20px;
+      cursor: pointer;
+      flex: 1 1 calc(33.333% - 40px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+
+}
+
+.product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.product-card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+
+}
+
+.product-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+}
+
+.product-card p {
+      font-size: 1rem;
+      color: var(--text-color);
+      margin-bottom: 15px;
+}
+
+.product-card .product-price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+}
+
+.product-card button {
+      background-color: var(--secondary-color);
+      color: var(--light-color);
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      width: 100%;
+}
+
+.product-card button:hover {
+      background-color: var(--primary-color);
+}
+
+/* Estilos responsivos para las tarjetas de productos */
+@media (max-width: 900px) {
+      .product-card {
+            flex: 1 1 calc(50% - 40px);
+      }
+}
+@media (max-width: 600px) {
+      .product-card {
+            flex: 1 1 100%;
+      }
+}
+/* ****************************** Fin de estilos para las tarjetas de productos ***************************** */
+
+/* ****************************** Estilos para las tarjetas de accesorios ***************************** */
+
+.accessories {
+      width: 100%;
+      background-color: var(--bg-color);
+      padding: 60px 20px;
+}
+
+.accessories .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+
+}
+
+.accessories .main-content h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      margin-bottom: 20px;
+      color: var(--primary-color);
+}
+.accessories .main-content p {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin-bottom: 40px;
+}
+
+.accessory-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3px;
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+}
+
+.accessory-card {
+      background-color: var(--light-color);
+      border-radius: 10px;
+      border: solid 2px var(--secondary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 300px;
+      margin: 20px;
+      cursor: pointer;
+      flex: 1 1 calc(33.333% - 40px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+
+}
+.accessory-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.accessory-card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+
+}
+
+.accessory-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+}
+
+.accessory-card p {
+      font-size: 1rem;
+      color: var(--text-color);
+      margin-bottom: 15px;
+}
+
+.accessory-card .accessory-price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+}
+
+.accessory-card button {
+      background-color: var(--secondary-color);
+      color: var(--light-color);
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      width: 100%;
+}
+.accessory-card button:hover {
+      background-color: var(--primary-color);
+}
+
+/* Estilos responsivos para las tarjetas de accesorios */
+@media (max-width: 900px) {
+      .accessory-card {
+            flex: 1 1 calc(50% - 40px);
+      }
+}
+@media (max-width: 600px) {
+      .accessory-card {
+            flex: 1 1 100%;
+      }
+}
+/* ****************************** Fin de estilos para las tarjetas de accesorios ***************************** */
+
+/* ****************************** Estilos para la sección de banners ***************************** */
+
+.banners {
+      background-image: url(./asset/images/contact_g.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 60px 20px;
+      margin: 0 auto;
+
+}
+
+.banners .banner-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+}
+.banners .banner-content .banner-text {
+      max-width: 50%;
+      flex: 1 1 50%;
+      color: var(--light-color);
+      text-align: center;
+}
+
+.banners .banner-content .banner-text h2 {
+      font-family: var(--menu-font);
+      font-size: clamp(20px, 3.2vw, 45px);
+      margin-bottom: 10px;
+}
+
+.banners .banner-content .banner-text p {
+      font-size: 20px;
+      margin-bottom: 30px;
+}
+
+.banners .banner-content img.banner-pct {
+      flex: 0 0 40%;
+      max-width: 40%;
+      width: 100%;
+      height: auto;
+      max-height: 40vh;
+      object-fit: contain;
+}
+.banners .banner-content .banner-text button {
+      background-color: var(--secondary-color);
+      color: var(--light-color);
+      border: none;
+      padding: 18px 24px;
+      margin: 15px 10px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+      width: auto;
+      max-width: 320px;
+}
+.banners .banner-content .banner-text button:hover {
+      background-color: var(--primary-color);
+}
+
+/* Estilos responsivos para la sección de banners */
+@media (max-width: 800px) {
+      .banners .banner-content {
+            flex-direction: column;
+            padding: 30px 20px;
+            gap: 20px;
+            align-items: center;
+      }
+      .banners .banner-content .banner-text {
+            max-width: 50%;
+            flex: 1 1 50%;
+            color: var(--light-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+      }
+      .banners .banner-content .banner-text h2 {
+            font-size: 28px;
+      }
+      .banners .banner-content .banner-text p {
+            font-size: 16px;
+      }
+      .banners .banner-content .banner-text button {
+            width: auto;
+            padding: 12px 18px;
+            font-size: 18px;
+      }
+      .banners .banner-content img.banner-pct {
+            max-width: 70%;
+            width: auto;
+            max-height: 30vh;
+      }
+}
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+      .banners .banner-content .banner-text h2 {
+            font-size: 24px;
+      }
+}
+/* Ajustes para pantallas mayores a 800px: mantener layout estable */
+@media (min-width: 801px) {
+      .banners .banner-content {
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 60px;
+      }
+      .banners .banner-content .banner-text {
+            text-align: left;
+            flex: 1 1 55%;
+            max-width: 55%;
+            padding-left: 20px;
+            align-items: flex-start;
+      }
+      .banners .banner-content img.banner-pct {
+            flex: 0 0 35%;
+            max-width: 35%;
+            max-height: 40vh;
+            width: auto;
+      }
+}
+/* ****************************** Fin de estilos para la sección de banners ***************************** */
+
+
+/* ****************************** Estilos para la sección de comentarios estilo carusel ***************************** */
+
+.comments {
+      background-color: var(--light-color);
+      padding: 60px 20px;
+      margin: 0 auto;
+}
+
+.comments .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+}
+
+.comments .main-content h2 {
+      font-family: var(--menu-font);
+      font-size: clamp(24px, 3.2vw, 45px);
+      text-align: center;
+      margin-bottom: 15px;
+}
+
+.comments .main-content p {
+      font-size: clamp(16px, 1.8vw, 20px);
+      text-align: center;
+}
+
+.comment-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 40px auto;
+}
+
+.comment-card {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: calc(33.33% - 40px);
+}
+
+.comment-card p {
+      font-size: clamp(16px, 1.8vw, 20px);
+}
+
+.comment-card span {
+      display:block;
+      font-style: italic;
+}
+.comment-card img {
+      border-radius: 10%;
+      object-fit: cover;
+      margin-bottom: 15px;
+}
+/* Estilos responsivos para la sección de comentarios */
+@media (max-width: 900px) {
+      .comment-card {
+            max-width: calc(50% - 40px);
+      }
+}
+@media (max-width: 600px) {
+      .comment-card {
+            max-width: 100%;
+      }
+}
+
+/* ****************************** Fin de estilos para la sección de comentarios estilo carusel ***************************** */
+
+/* ****************************** Estilos para la seccion de contacto ***************************** */
+
+.contact {
+      background-image: url(./asset/images/contact_g.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 60px 20px;
+      margin: 0 auto;
+
+}
+.contact .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+
+}
+
+.contact .contact-container .contact-info{
+      flex: 1 1 300px;
+      max-width: 400px;
+      text-align: left;
+      margin: 0 auto 40px 34%;
+      padding-top: 20px;
+}
+.contact .main-content h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      margin-bottom: 20px;
+      color: var(--light-color);
+}
+.contact .main-content p {
+      font-size: 1.2rem;
+      color: var(--light-color);
+      margin-bottom: 40px;
+}
+.contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+}
+
+.contact form input,
+.contact form textarea {
+      padding: 12px;
+      border: 2px solid var(--secondary-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+}
+.contact form button {
+      background-color: var(--secondary-color);
+      color: var(--light-color);
+      border: none;
+      padding: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+}
+.contact form button:hover {
+      background-color: var(--primary-color);
+}
+
+/* Estilos responsivos para la sección de contacto */
+@media (max-width: 800px) {
+      .contact .contact-container .contact-info{
+            margin: 0 auto 40px 25%;
+      }
+
+      .contact form {
+            width: 100%;
+            padding: 0 10px;
+      }
+
+}
+
+
+/* ****************************** Fin de estilos para la seccion de contacto ***************************** */
+
+
+/* ****************************** Estilos para el footer ***************************** */
+
+
+footer {
+      background-image: url(./asset/images/footer.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--light-color);    
+      padding: 20px 0;
+      
+}
+footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+}
+
+footer .footer-content .footer-section {
+      flex: 1 1 200px;
+      margin: 10px;
+}
+footer .footer-content .footer-section h3 {
+      margin-bottom: 15px;
+}
+footer .footer-content .footer-section p,
+footer .footer-content .footer-section a {
+      font-size: 0.9rem;
+      color: var(--light-color);
+      text-decoration: none;
+}
+footer .footer-content .footer-section a:hover {
+      text-decoration: underline;
+}
+footer .footer-content .footer-section .footer-links {
+      list-style-type: none;
+      padding: 0;
+}
+footer .footer-content .footer-section .footer-links li {
+      margin-bottom: 10px;
+}
+footer .footer-content .footer-section .footer-links li a {
+      color: var(--light-color);
+}
+footer .footer-content .footer-section .footer-links li a:hover {
+      color: var(--secondary-color);
+}
+footer .footer-bottom {
+      text-align: center;
+      padding: 10px;
+      border-top: 1px solid var(--light-color);
+      font-size: 0.8rem;
+}
+/* ****************************** Fin de estilos para el footer ***************************** */
